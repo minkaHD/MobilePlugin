@@ -1,0 +1,4 @@
+name: MobilePlugin
+version: '${project.version}'
+main: de.capitain_america.mobileplugin.MobilePlugin
+api-version: '1.21'
