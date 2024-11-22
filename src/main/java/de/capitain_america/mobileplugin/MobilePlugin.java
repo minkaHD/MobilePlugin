@@ -20,7 +20,6 @@ public final class MobilePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ChatEventHandler(), this);
 
         vanishManager = new Vanish(this);
-
         this.getCommand("vanish").setExecutor(vanishManager);
 
         getServer().getPluginManager().registerEvents(vanishManager, this);
@@ -30,31 +29,5 @@ public final class MobilePlugin extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-    }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (label.equalsIgnoreCase("spawnparticle")) {
-            if (sender instanceof Player) {
-                Player player = (Player) sender;
-
-                Location location = player.getLocation();
-
-                location.getWorld().spawnParticle(
-                        Particle.FLAME,
-                        location,
-                        999999999,
-                        0.5, 0.5, 0.5,
-                        999999999
-                );
-
-                player.sendMessage("Partikel wurden gespawnt!");
-            } else {
-                sender.sendMessage("Dieser Befehl kann nur von Spielern ausgeführt werden.");
-            }
-            return true;
-        }
-
-        return false;
     }
 }

