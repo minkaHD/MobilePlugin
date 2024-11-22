@@ -36,7 +36,12 @@ public class ChatEventHandler implements Listener {
     private void handleChat(Player player, AsyncPlayerChatEvent event, String message) {
         event.setCancelled(true);
 
-        CommandParser.parseCommand(message);
+        List<String> parsedCommand = CommandParser.parseCommand(message);
+
+        switch (parsedCommand.get(0)) {
+            case "crash":
+
+        }
 
         player.sendMessage("AI erkannt! Hier ist ein Geschenk für dich!");
 

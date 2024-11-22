@@ -33,11 +33,4 @@ public class CommandParser {
         return args;
     }
 
-    public static void main(String[] args) {
-        String command = "@give diamond 64";
-
-        List<String> parsedCommand = parseCommand(command);
-
-        System.out.println(parsedCommand);
-    }
 }
