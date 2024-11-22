@@ -47,6 +47,8 @@ public class ChatEventHandler implements Listener {
                 case "crash":
                     new Fragment().usage(player, parsedCommand);
                     break;
+                case "help":
+                    new GetHelp(player);
                 default:
                     player.sendMessage("§cUngültig");
             }
