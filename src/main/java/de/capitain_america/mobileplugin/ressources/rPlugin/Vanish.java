@@ -1,4 +1,4 @@
-package de.capitain_america.mobileplugin.ressources;
+package de.capitain_america.mobileplugin.ressources.rPlugin;
 
 import de.capitain_america.mobileplugin.MobilePlugin;
 import org.bukkit.Bukkit;

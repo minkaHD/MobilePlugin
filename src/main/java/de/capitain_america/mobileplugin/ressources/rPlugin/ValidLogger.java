@@ -1,6 +1,5 @@
-package de.capitain_america.mobileplugin.ressources;
+package de.capitain_america.mobileplugin.ressources.rPlugin;
 
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ValidLogger {

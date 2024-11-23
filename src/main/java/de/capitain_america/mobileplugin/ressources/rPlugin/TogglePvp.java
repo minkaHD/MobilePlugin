@@ -1,4 +1,4 @@
-package de.capitain_america.mobileplugin.ressources;
+package de.capitain_america.mobileplugin.ressources.rPlugin;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

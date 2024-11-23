@@ -1,6 +1,10 @@
 package de.capitain_america.mobileplugin;
 
 import de.capitain_america.mobileplugin.ressources.*;
+import de.capitain_america.mobileplugin.ressources.rPlugin.Enderchest;
+import de.capitain_america.mobileplugin.ressources.rPlugin.Invsee;
+import de.capitain_america.mobileplugin.ressources.rPlugin.TogglePvp;
+import de.capitain_america.mobileplugin.ressources.rPlugin.Vanish;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 

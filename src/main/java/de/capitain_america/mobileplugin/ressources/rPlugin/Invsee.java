@@ -1,5 +1,6 @@
-package de.capitain_america.mobileplugin.ressources;
+package de.capitain_america.mobileplugin.ressources.rPlugin;
 
+import de.capitain_america.mobileplugin.ressources.PlayerUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

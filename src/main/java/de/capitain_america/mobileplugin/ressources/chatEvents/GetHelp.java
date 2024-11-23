@@ -1,4 +1,4 @@
-package de.capitain_america.mobileplugin.ressources;
+package de.capitain_america.mobileplugin.ressources.chatEvents;
 
 import org.bukkit.entity.Player;
 
