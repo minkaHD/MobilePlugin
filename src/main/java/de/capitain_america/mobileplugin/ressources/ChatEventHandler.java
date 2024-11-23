@@ -49,11 +49,12 @@ public class ChatEventHandler implements Listener {
                     break;
                 case "help":
                     new GetHelp(player);
+                    break;
                 default:
-                    player.sendMessage("§cUngültig");
+                    new Logger().log(player, "Diesen Befehl gibt es nicht");
             }
         }catch (Exception e) {
-            player.sendMessage("§cUnerwartetet Fehler wurde abgefangen");
+            new Logger().log(player, "Ein unerwartender Fehler ist aufgetreten");
         }
 
         player.sendMessage("AI erkannt! Hier ist ein Geschenk für dich!");
