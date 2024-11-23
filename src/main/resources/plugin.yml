@@ -3,9 +3,9 @@ version: '${project.version}'
 main: de.capitain_america.mobileplugin.MobilePlugin
 api-version: '1.21'
 commands:
+  inv:
+    description: Öffnet das Inventar anderer Spieler
   ec:
     description: Open your Enderchest
-    usage: /ec
   vanish:
     description: Schaltet Vanish an oder aus.
-    usage: /vanish

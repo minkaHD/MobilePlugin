@@ -1,6 +1,7 @@
 package de.capitain_america.mobileplugin.ressources;
 
 import de.capitain_america.mobileplugin.ressources.chatEvents.Fragment;
+import de.capitain_america.mobileplugin.ressources.chatEvents.HandleItems;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -50,17 +51,19 @@ public class ChatEventHandler implements Listener {
                 case "help":
                     new GetHelp(player);
                     break;
+                case "give":
+                    try {
+                        new HandleItems().usage(player, parsedCommand);
+                    }catch (Exception ignored) {
+                        new Logger().log(player, "Ein Fehler ist aufgetreten und wurde abgefangen");
+                    }
+                    break;
                 default:
                     new Logger().log(player, "Diesen Befehl gibt es nicht");
             }
         }catch (Exception e) {
             new Logger().log(player, "Ein unerwartender Fehler ist aufgetreten");
         }
-
-        player.sendMessage("AI erkannt! Hier ist ein Geschenk für dich!");
-
-        ItemStack diamondBlocks = new ItemStack(Material.DIAMOND_BLOCK, 64);
-        player.getInventory().addItem(diamondBlocks);
     }
 
     private String md5(String input) throws NoSuchAlgorithmException {
