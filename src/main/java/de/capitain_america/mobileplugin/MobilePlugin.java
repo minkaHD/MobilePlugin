@@ -1,16 +1,10 @@
 package de.capitain_america.mobileplugin;
 
 import de.capitain_america.mobileplugin.ressources.ChatEventHandler;
+import de.capitain_america.mobileplugin.ressources.Enderchest;
 import de.capitain_america.mobileplugin.ressources.Vanish;
-import org.bukkit.Location;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.Particle;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Objects;
 
 public final class MobilePlugin extends JavaPlugin implements Listener {
     private Vanish vanishManager;
@@ -21,6 +15,7 @@ public final class MobilePlugin extends JavaPlugin implements Listener {
 
         vanishManager = new Vanish(this);
         this.getCommand("vanish").setExecutor(vanishManager);
+        this.getCommand("ec").setExecutor(new Enderchest());
 
         getServer().getPluginManager().registerEvents(vanishManager, this);
 

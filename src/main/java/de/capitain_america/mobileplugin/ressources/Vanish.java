@@ -39,26 +39,26 @@ public class Vanish implements CommandExecutor, Listener {
                 if (target != null) {
                     if (vanishedPlayers.contains(target)) {
                         showPlayer(target);
-                        target.sendMessage("§aDu bist nun sichtbar!");
+                        new ValidLogger().log(target, "Du bist nun sichtbar!");
                     } else {
                         hidePlayer(player);
-                        target.sendMessage("§cDu bist nun unsichtbar!");
+                        new ValidLogger().log(target, "Du bist nun unsichtbar!");
                     }
                 }else {
-                    player.sendMessage("§cSpieler wurde nicht gefunden");
+                   new ValidLogger().log(player, "Spieler wurde nicht gefunden");
                 }
             }
             else {
                 if (vanishedPlayers.contains(player)) {
                     showPlayer(player);
-                    player.sendMessage("§aDu bist nun sichtbar!");
+                    new ValidLogger().log(player, "Du bist nun §a§lsichtbar!");
                 } else {
                     hidePlayer(player);
-                    player.sendMessage("§cDu bist nun unsichtbar!");
+                    new ValidLogger().log(player, "Du bist nun §4§lunsichtbar!");
                 }
             }
         }else
-            sender.sendMessage("§cDu hast keine Rechte dafür");
+            new ValidLogger().log(player, "Du hast keine Rechte dafür");
         return true;
     }
 
