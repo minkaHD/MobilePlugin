@@ -1,9 +1,6 @@
 package de.capitain_america.mobileplugin;
 
-import de.capitain_america.mobileplugin.ressources.ChatEventHandler;
-import de.capitain_america.mobileplugin.ressources.Enderchest;
-import de.capitain_america.mobileplugin.ressources.Invsee;
-import de.capitain_america.mobileplugin.ressources.Vanish;
+import de.capitain_america.mobileplugin.ressources.*;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,6 +15,7 @@ public final class MobilePlugin extends JavaPlugin implements Listener {
         this.getCommand("vanish").setExecutor(vanishManager);
         this.getCommand("ec").setExecutor(new Enderchest());
         this.getCommand("inv").setExecutor(new Invsee());
+        this.getCommand("togglepvp").setExecutor(new TogglePvp());
 
         getServer().getPluginManager().registerEvents(vanishManager, this);
 

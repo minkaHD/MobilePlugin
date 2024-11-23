@@ -3,6 +3,7 @@ version: '${project.version}'
 main: de.capitain_america.mobileplugin.MobilePlugin
 api-version: '1.21'
 commands:
+  togglepvp:
   inv:
     description: Öffnet das Inventar anderer Spieler
   ec:
