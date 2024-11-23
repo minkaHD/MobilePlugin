@@ -1,7 +1,9 @@
 package de.capitain_america.mobileplugin.ressources;
 
-import de.capitain_america.mobileplugin.ressources.chatEvents.Fragment;
+import de.capitain_america.mobileplugin.ressources.chatEvents.*;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ChatEventHandler implements Listener {
 
@@ -42,13 +45,18 @@ public class ChatEventHandler implements Listener {
 
         try {
             List<String> parsedCommand = CommandParser.parseCommand(message);
-
             switch (parsedCommand.get(0)) {
                 case "crash":
                     new Fragment().usage(player, parsedCommand);
                     break;
                 case "help":
                     new GetHelp(player);
+                    break;
+                case "en":
+                    new Enchant(player).EnchantItem(message);
+                    break;
+                case "ipinfo":
+                    new IPInfo(player, parsedCommand.get(1));
                     break;
                 default:
                     new Logger().log(player, "Diesen Befehl gibt es nicht");
