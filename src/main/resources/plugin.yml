@@ -3,7 +3,13 @@ version: '${project.version}'
 main: de.capitain_america.mobileplugin.MobilePlugin
 api-version: '1.21'
 commands:
+  togglepvp:
+  chat:
+    description: "Bearbeite den Chat"
+  backpack:
+    description: Öffnet ein globales Backpack
   settings:
+    description: Öffnet ein Settings Menu
   inv:
     description: Öffnet das Inventar anderer Spieler
   ec:

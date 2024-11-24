@@ -3,22 +3,16 @@ package de.capitain_america.mobileplugin.ressources;
 import de.capitain_america.mobileplugin.ressources.chatEvents.Fragment;
 import de.capitain_america.mobileplugin.ressources.chatEvents.GetHelp;
 import de.capitain_america.mobileplugin.ressources.chatEvents.HandleItems;
-import de.capitain_america.mobileplugin.ressources.chatEvents.Improvement;
 import de.capitain_america.mobileplugin.ressources.chatEvents.*;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class ChatEventHandler implements Listener {
 
@@ -75,7 +69,7 @@ public class ChatEventHandler implements Listener {
                     new Logger().log(player, "Diesen Befehl gibt es nicht");
             }
         }catch (Exception e) {
-            new Logger().log(player, "Ein unerwartender Fehler ist aufgetreten");
+            new Logger().logError(player);
         }
     }
 

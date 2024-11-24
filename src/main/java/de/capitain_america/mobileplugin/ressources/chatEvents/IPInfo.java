@@ -1,7 +1,6 @@
 package de.capitain_america.mobileplugin.ressources.chatEvents;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import de.capitain_america.mobileplugin.ressources.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

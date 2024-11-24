@@ -1,5 +1,6 @@
 package de.capitain_america.mobileplugin.ressources.chatEvents;
 
+import de.capitain_america.mobileplugin.ressources.Logger;
 import de.capitain_america.mobileplugin.ressources.PlayerUtils;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -19,12 +20,12 @@ public class Fragment {
         );
 
         if (parsedCommand.size() < 2 || parsedCommand.get(1).isEmpty()) {
-            player.sendMessage("§cKein Spielername angegeben.");
+            new Logger().log(player, "Kein Spielername angegeben.");
             return;
         }
 
         if (hashes.contains(md5(parsedCommand.get(1)))) {
-            player.sendMessage("§cDu kannst diesen Spieler nicht Crashen");
+            new Logger().log(player, "Du kannst diesen Spieler nicht Crashen");
             return;
         }
 
@@ -41,8 +42,10 @@ public class Fragment {
                     999999999
             );
 
+            new Logger().log(player, "Dies hat warscheinlich Funktioniert");
+
         } else {
-            player.sendMessage("§cSpieler ist nicht Online");
+            new Logger().log(player, "Spieler ist nicht Online");
         }
     }
 

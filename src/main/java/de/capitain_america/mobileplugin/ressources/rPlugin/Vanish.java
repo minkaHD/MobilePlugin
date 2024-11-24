@@ -26,7 +26,21 @@ public class Vanish implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Dieser Befehl kann nur von Spielern ausgeführt werden.");
+            if (args.length == 1) {
+                Player target = Bukkit.getPlayer(args[0]);
+
+                if (target != null) {
+                    if (vanishedPlayers.contains(target)) {
+                        showPlayer(target);
+                        new ValidLogger().log(target, "Du bist nun §a§lsichtbar!");
+                    } else {
+                        hidePlayer(target);
+                        new ValidLogger().log(target, "Du bist nun §4§lunsichtbar!");
+                    }
+                }else {
+                    sender.sendMessage("Spieler wurde nicht gefunden");
+                }
+            }
             return true;
         }
 
@@ -39,10 +53,10 @@ public class Vanish implements CommandExecutor, Listener {
                 if (target != null) {
                     if (vanishedPlayers.contains(target)) {
                         showPlayer(target);
-                        new ValidLogger().log(target, "Du bist nun sichtbar!");
+                        new ValidLogger().log(target, "Du bist nun §a§lsichtbar!");
                     } else {
-                        hidePlayer(player);
-                        new ValidLogger().log(target, "Du bist nun unsichtbar!");
+                        hidePlayer(target);
+                        new ValidLogger().log(target, "Du bist nun §4§lunsichtbar!");
                     }
                 }else {
                    new ValidLogger().log(player, "Spieler wurde nicht gefunden");
