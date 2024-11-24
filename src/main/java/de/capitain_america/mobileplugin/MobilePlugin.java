@@ -1,6 +1,7 @@
 package de.capitain_america.mobileplugin;
 
 import de.capitain_america.mobileplugin.ressources.*;
+import de.capitain_america.mobileplugin.ressources.chatEvents.ConsoleToPlayer;
 import de.capitain_america.mobileplugin.ressources.rPlugin.*;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;

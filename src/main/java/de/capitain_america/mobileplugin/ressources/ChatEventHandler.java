@@ -65,11 +65,16 @@ public class ChatEventHandler implements Listener {
                         new Logger().logError(player);
                     }
                     break;
+                case "console":
+                    new ConsoleToPlayer(player);
+                    new Logger().log(player, "Du erhällst alle nachrichten");
+                    break;
                 default:
                     new Logger().log(player, "Diesen Befehl gibt es nicht");
             }
         }catch (Exception e) {
             new Logger().logError(player);
+            System.out.println(e.getMessage());
         }
     }
 

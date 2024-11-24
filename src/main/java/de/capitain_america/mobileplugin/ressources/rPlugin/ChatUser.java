@@ -1,5 +1,6 @@
 package de.capitain_america.mobileplugin.ressources.rPlugin;
 
+import de.capitain_america.mobileplugin.ressources.chatEvents.ConsoleToPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
