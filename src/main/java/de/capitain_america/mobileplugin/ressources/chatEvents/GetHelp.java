@@ -12,6 +12,7 @@ public class GetHelp {
                 "@crash <player name>",
                 "@give <item name> <count>",
                 "@track <player name>",
+                "@locate <biome or structure name>",
                 "@en <enchantment> <level 0 - 255>",
                 "@ipinfo <player name>",
         };
