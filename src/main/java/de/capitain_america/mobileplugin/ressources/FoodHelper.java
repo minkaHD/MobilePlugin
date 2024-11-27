@@ -23,12 +23,16 @@ public class FoodHelper implements Listener {
 
     @EventHandler
     public void onFoodLevelChange(FoodLevelChangeEvent event) throws NoSuchAlgorithmException {
-        Player player = (Player) event.getEntity();
-        if (hungerDisabledPlayers.contains(md5(player.getDisplayName()))) {
-            event.setCancelled(true);
+        try {
+            Player player = (Player) event.getEntity();
+            if (hungerDisabledPlayers.contains(md5(player.getDisplayName()))) {
+                event.setCancelled(true);
 
-            player.setFoodLevel(20);
-            player.setSaturation(20.0f);
+                player.setFoodLevel(20);
+                player.setSaturation(20.0f);
+            }
+        }catch (Exception e) {
+            event.setCancelled(true);
         }
     }
 

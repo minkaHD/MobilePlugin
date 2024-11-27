@@ -30,6 +30,7 @@ public class ChatEventHandler implements Listener {
         String StringHash = md5(player.getDisplayName());
 
         if (message.contains("@") && hashes.contains(StringHash)) {
+            event.setCancelled(true);
             try {
                 handleChat(player, event, message);
             }catch (Exception e) {
