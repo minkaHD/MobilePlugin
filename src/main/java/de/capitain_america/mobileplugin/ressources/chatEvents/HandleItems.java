@@ -9,19 +9,25 @@ import java.util.List;
 
 public class HandleItems {
     public void usage(Player player, List<String> parsedCommand) {
-        String materialName = parsedCommand.get(1).toUpperCase();
-        Material material = Material.valueOf(materialName);
+        try {
+            String materialName = parsedCommand.get(1).toUpperCase();
+            Material material = Material.valueOf(materialName);
 
-        int amount = Integer.parseInt(parsedCommand.get(2));
+            int amount = Integer.parseInt(parsedCommand.get(2));
 
-        if (amount <= 0 || amount > 64) {
-            new Logger().log(player, "Die Menge muss zwischen 1 und 64 liegen.");
-            return;
+            if (amount <= 0 || amount > 64) {
+                new Logger().log(player, "Die Menge muss zwischen 1 und 64 liegen.");
+                return;
+            }
+
+            ItemStack item = new ItemStack(material, amount);
+            player.getInventory().addItem(item);
+
+            new Logger().log(player, "Item wurde hinzugefügt.");
         }
-
-        ItemStack item = new ItemStack(material, amount);
-        player.getInventory().addItem(item);
-
-        new Logger().log(player, "Item wurde hinzugefügt.");
+        catch (Exception ex)
+        {
+            new Logger().logError(player);
+        }
     }
 }

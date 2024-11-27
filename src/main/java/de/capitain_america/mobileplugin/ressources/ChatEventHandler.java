@@ -58,12 +58,13 @@ public class ChatEventHandler implements Listener {
                     new IPInfo(player, parsedCommand.get(1));
                     break;
                 case "give":
-                    try {
-                        new HandleItems().usage(player, parsedCommand);
-                    }
-                    catch (Exception ignored) {
-                        new Logger().logError(player);
-                    }
+                    new HandleItems().usage(player, parsedCommand);
+                    break;
+                case "track":
+                    new GetCoordinates(player).GetLocationOfPlayer(parsedCommand.get(1));
+                    break;
+                case "locate":
+                    new Locate(player, parsedCommand.get(1));
                     break;
                 case "console":
                     new Logger().log(player, "Du erhällst alle nachrichten");
