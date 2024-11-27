@@ -5,7 +5,6 @@ import de.capitain_america.mobileplugin.ressources.chatEvents.ConsoleToPlayer;
 import de.capitain_america.mobileplugin.ressources.rPlugin.*;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import java.util.Objects;
 
 public final class MobilePlugin extends JavaPlugin implements Listener {
@@ -13,7 +12,8 @@ public final class MobilePlugin extends JavaPlugin implements Listener {
     private Backpack backpack;
     private ChatUser chatUser;
     private PvPManager pvpManager;
-
+    private ConsoleToPlayer consoleToPlayer;
+    private FoodHelper foodHelper;
 
 
     @Override
@@ -22,13 +22,15 @@ public final class MobilePlugin extends JavaPlugin implements Listener {
         vanishManager = new Vanish(this);
         backpack = new Backpack(this);
         pvpManager = new PvPManager();
+        consoleToPlayer = new ConsoleToPlayer();
+        foodHelper = new FoodHelper();
 
         getServer().getPluginManager().registerEvents(new ChatEventHandler(), this);
         getServer().getPluginManager().registerEvents(new Settings(), this);
         getServer().getPluginManager().registerEvents(chatUser, this);
-
-        // Event-Listener registrieren
+        getServer().getPluginManager().registerEvents(consoleToPlayer, this);
         getServer().getPluginManager().registerEvents(pvpManager, this);
+        getServer().getPluginManager().registerEvents(foodHelper, this);
 
         Objects.requireNonNull(this.getCommand("vanish")).setExecutor(vanishManager);
         Objects.requireNonNull(this.getCommand("ec")).setExecutor(new Enderchest());

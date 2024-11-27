@@ -72,8 +72,8 @@ public class Settings implements CommandExecutor, Listener {
                 ItemStack chatItem = new ItemStack(Material.WRITABLE_BOOK);
                 ItemMeta chatMeta = chatItem.getItemMeta();
                 assert chatMeta != null;
-                chatMeta.setDisplayName("§6Wechsel Admin Chat");
-                chatMeta.setLore(Collections.singletonList("§7Entscheide ob Admins schreiben können wenn der Chat aus ist"));
+                chatMeta.setDisplayName("§6Chat");
+                chatMeta.setLore(Collections.singletonList("§7Entscheide ob im Chat geschrieben werden soll oder nicht"));
                 chatItem.setItemMeta(chatMeta);
                 intigerItemStackHashMap.put(chatEventSlot, chatItem);
 

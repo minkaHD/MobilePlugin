@@ -66,7 +66,6 @@ public class ChatEventHandler implements Listener {
                     }
                     break;
                 case "console":
-                    new ConsoleToPlayer(player);
                     new Logger().log(player, "Du erhällst alle nachrichten");
                     break;
                 default:
