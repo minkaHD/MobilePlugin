@@ -10,6 +10,7 @@ import org.bukkit.structure.Structure;
 import org.bukkit.util.StructureSearchResult;
 import org.checkerframework.checker.units.qual.N;
 
+import java.io.Console;
 import java.text.MessageFormat;
 import java.util.Objects;
 
@@ -36,6 +37,7 @@ public class Locate {
     {
         try {
             Biome biome = Biome.valueOf(locationName);
+            player.sendMessage(biome.toString());
             return Objects.requireNonNull(player.getWorld().locateNearestBiome(player.getLocation(), 100000, biome)).getLocation();
         }
         catch (Exception ex)
@@ -49,7 +51,8 @@ public class Locate {
         try
         {
             NamespacedKey key = NamespacedKey.minecraft(locationName);
-            StructureType structure = Registry.STRUCTURE_TYPE.get(key);
+            player.sendMessage(key.toString());
+            StructureType structure = Objects.requireNonNull(Registry.STRUCTURE.get(key)).getStructureType();
             return  Objects.requireNonNull(player.getWorld().locateNearestStructure(player.getLocation(), structure, 100000, true)).getLocation();
         }
         catch (Exception ex)
